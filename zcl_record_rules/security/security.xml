@@ -1,0 +1,159 @@
+<odoo>
+    <data>
+
+        <record id="zcl_quotation_user_branch_rules" model="ir.rule">
+            <field name="name">Sale Quotation</field>
+            <field name="model_id" ref="zcl_quotations.model_sale_quotation"/>
+            <field name="domain_force">[('branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="cash_receiptt_user_branch_rules" model="ir.rule">
+            <field name="name">Cash Receipt</field>
+            <field name="model_id" ref="zcl_cash_receipt.model_cash_receipt"/>
+            <field name="domain_force">[('branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="customer_invoice_user_branch_rules" model="ir.rule">
+            <field name="name">Customer Invoice</field>
+            <field name="model_id" ref="zcl_invoice.model_customer_invoice"/>
+            <field name="domain_force">[('branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="damage_stock_branch_managers_rule" model="ir.rule">
+            <field name="name">Damage Stock</field>
+            <field name="model_id" ref="zcl_damage_stock.model_damage_stock"/>
+            <field name="domain_force">[('branch','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="pur_req_user_branch_rules" model="ir.rule">
+            <field name="name">PDC</field>
+            <field name="model_id" ref="zcl_purchase_requisition.model_purchase_requisition"/>
+            <field name="domain_force">[('branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="material_request_user_branch_rules" model="ir.rule">
+            <field name="name">Material Request</field>
+            <field name="model_id" ref="zcl_material_request.model_material_request"/>
+            <field name="domain_force">[('branch','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+        <record id="pdc_user_branch_rules" model="ir.rule">
+            <field name="name">PDC</field>
+            <field name="model_id" ref="zcl_pdc_management.model_pdc_management"/>
+            <field name="domain_force">[('branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="record_rule_sale_orders" model="ir.rule">
+            <field name="name">Sale Order</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="domain_force">[('branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+
+        <record id="stock_loc_branch_rules" model="ir.rule">
+            <field name="name">location</field>
+            <field name="model_id" ref="stock.model_stock_location"/>
+            <field name="domain_force">['|', ('branch_id','=',False), ('branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+         <record id="account_invoice_branch_rules" model="ir.rule">
+            <field name="name">Invoice</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="domain_force">[('branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="stock_picking_branch_rules" model="ir.rule">
+            <field name="name">Stock Picking</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="domain_force">[('branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+
+         <record id="stock_quants_branch_rules" model="ir.rule">
+            <field name="name">Stock quant</field>
+            <field name="model_id" ref="stock.model_stock_quant"/>
+            <field name="domain_force">[('location_id.branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+         <record id="purchase_orders_branch_rules" model="ir.rule">
+            <field name="name">Purchase Order</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="domain_force">[('branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+         <record id="stock_move_branch_rules" model="ir.rule">
+            <field name="name">Stock Move</field>
+            <field name="model_id" ref="stock.model_stock_move"/>
+        <field name="domain_force">[('branch_id','in',user.branch_ids.ids)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+<!--         <record id="res_partner_branch_rules" model="ir.rule">-->
+<!--            <field name="name">Res Partner</field>-->
+<!--            <field name="model_id" ref="model_res_partner"/>-->
+<!--        <field name="domain_force">[('branch_id','in',user.branch_ids.ids)]</field>-->
+<!--            <field name="perm_read" eval="True"/>-->
+<!--            <field name="perm_write" eval="True"/>-->
+<!--            <field name="perm_create" eval="True"/>-->
+<!--            <field name="perm_unlink" eval="True"/>-->
+<!--        </record>-->
+
+
+
+
+    </data>
+</odoo>

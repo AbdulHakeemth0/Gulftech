@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="damage_stock_in_view_tree_store_report" model="ir.ui.view">
+        <field name="name">damage.stock.in.report.tree</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <tree string="Damage stock report" create="false" default_order="id desc">
+                <field name="company_id" invisible="1"/>
+                <field name="location_id" string="Transfer From"/>
+                <field name="location_dest_id" string="Transfer To"/>
+                <field name="product_id" string="Product"/>
+                <field name="product_code"  string="Product Code"/>
+                <field name="description_picking" string="Description"/>
+                <field name="product_uom_qty" string="Quantity"/>
+                <field name="damage_stock_state" optional="show" widget="badge"
+                       decoration-danger="damage_stock_state=='reject'"
+                       decoration-muted="damage_stock_state == 'draft'"
+                       decoration-success="damage_stock_state == 'approve'" string="State"/>
+                <field name="remark" string="Remarks"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="damage_stock_in_pending_tree_store_report" model="ir.ui.view">
+        <field name="name">damage.stock.in.pending.report.tree</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <tree string="Damage stock report" create="false" default_order="id desc">
+                <field name="company_id" invisible="1"/>
+                <field name="location_id" string="Transfer From"/>
+                <field name="location_dest_id" string="Transfer To"/>
+                <field name="product_id" string="Product"/>
+                <field name="product_code"  string="Product Code"/>
+                <field name="description_picking" string="Description"/>
+                <field name="product_uom_qty" string="Quantity"/>
+                <field name="quantity_done" string="Done quantity"/>
+                <field name="pending_qty" string="Pending Quantity"/>
+                <field name="damage_stock_state" optional="show" widget="badge"
+                       decoration-danger="damage_stock_state=='reject'"
+                       decoration-muted="damage_stock_state == 'draft'"
+                       decoration-success="damage_stock_state == 'approve'" string="State"/>
+                <field name="remark" string="Remarks"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--  ACTION FOR VIEW DAMAGE STOCK REPORT BY BRANCH WISE IN USING PYTHON FUNCTION -->
+        <record id="damage_stock_in_report_shop" model="ir.actions.server">
+            <field name="name">Category Accessories</field>
+            <field name="model_id" ref="stock.model_stock_move"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.damage_stock_out_report_shop()
+            </field>
+        </record>
+
+
+    <record id="damage_stock_in_action_store_report" model="ir.actions.act_window">
+        <field name="name">Damage Stock In Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.move</field>
+        <field name="domain">[('damage_stock_state', 'in', ('approve','completed')),]</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('damage_stock_in_view_tree_store_report')})
+                ]"/>
+    </record>
+
+
+    <record id="damage_stock_out_action_store_report" model="ir.actions.act_window">
+        <field name="name">Damage Stock Out Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.move</field>
+        <field name="domain">[('damage_stock_state', 'in', ('done', 'approve', 'reject', 'completed')),]</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('damage_stock_in_view_tree_store_report')})
+                ]"/>
+    </record>
+
+    <record id="damage_stock_in_pending_report" model="ir.actions.act_window">
+        <field name="name">Damage Stock IN Pending Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.move</field>
+        <field name="domain">[('damage_stock_state', 'in', ('completed',)),('pending_qty', '>', 0)]</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('damage_stock_in_pending_tree_store_report')})
+                ]"/>
+    </record>
+
+
+</odoo>

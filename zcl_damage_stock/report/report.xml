@@ -1,0 +1,53 @@
+<odoo>
+    <record id="report_damage_stockin_xlsx" model="ir.actions.report">
+        <field name="name">Damage Stock In XLSX</field>
+        <field name="type">ir.actions.report</field>
+        <field name="report_type">xlsx</field>
+        <field name="model">stock.picking</field>
+        <field name="report_name">zcl_damage_stock.damage_stockin_report_xlsx</field>
+        <field name="report_file">zcl_damage_stock.damage_stockin_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+     <record id="report_damage_stockout_xlsx" model="ir.actions.report">
+        <field name="name">Damage Stock OUT XLSX</field>
+        <field name="type">ir.actions.report</field>
+        <field name="report_type">xlsx</field>
+        <field name="model">damage.stock</field>
+        <field name="report_name">zcl_damage_stock.damage_stockout_report_xlsx</field>
+        <field name="report_file">zcl_damage_stock.damage_stockout_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+<!--    <record id="action_damage_stockout_report_xlsx" model="ir.actions.server">-->
+<!--        <field name="name">Damage Stockout Report</field>-->
+<!--        <field name="type">ir.actions.server</field>-->
+<!--        <field name="model_id" ref="model_damage_stock"/>  &lt;!&ndash; Replace 'your_model_name' with your model name &ndash;&gt;-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="code">-->
+<!--            action = env['report.zcl_damage_stock.damage_stockout_report_xlsx'].with_context(-->
+<!--                xls_export=True).create({})-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="damage_stockout_xlsx_report" model="ir.actions.report">-->
+<!--        <field name="name">Damaged Stock Report</field>-->
+<!--        <field name="tag">ir.actions.report</field>-->
+<!--        <field name="report_name">zcl_damage_stock.damage_stockout_report_xlsx</field>-->
+<!--        <field name="type">ir_actions_xlsx_download</field>-->
+<!--    </record>-->
+<!--    <record id="action_damage_stock_xlsx" model="ir.actions.server">-->
+<!--        <field name="name">Damage Stock XLSX Report</field>-->
+<!--        <field name="model_id" ref="model_stock_picking"/>-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="code">action = env.ref('zcl_damage_stock.damage_stockin_report_xlsx').report_action([], data=data)</field>-->
+<!--    </record>-->
+
+<!--    <menuitem  id="menu_damage_stock_in" name="Damage Stock IN Report" parent="zcl_store.menu_report_store" action="report_damage_stockin_xlsx" sequence="46"/>-->
+<!--    <menuitem  id="menu_damage_stock_out" name="Damage Stock OUT Report" parent="zcl_store.menu_report_store" action="report_damage_stockout_xlsx" sequence="46"/>-->
+
+</odoo>

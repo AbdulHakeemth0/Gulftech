@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    PDF report action for customer-->
+    <record id="action_report_travels_management" model="ir.actions.report">
+        <field name="name">Customer Information</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">zcl_contacts.report_customer_details</field>
+        <field name="report_file">zcl_contacts.report_customer_details</field>
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

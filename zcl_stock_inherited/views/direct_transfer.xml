@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="direct_transfer_tree_view" model="ir.ui.view">
+        <field name="name">direct.transfer.tree</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <tree string="Direct Transfer Out Report" create="false" default_order="id desc">
+                <field name="reference"/>
+                <field name="date"/>
+                <field name="product_id"/>
+                <field name="narration"/>
+                <field name="location_id"/>
+                <field name="location_dest_id"/>
+                <field name="product_uom_qty" string="Quantity"/>
+                <field name="product_uom" string="Unit"/>
+            </tree>
+        </field>
+    </record>
+    <record id="direct_transfer_pending_report_view" model="ir.ui.view">
+        <field name="name">direct.transfer.pending.report</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <tree string="Direct Transfer Pending Report" create="false" default_order="id desc">
+                <field name="reference"/>
+                <field name="date"/>
+                <field name="product_id"/>
+                <field name="narration"/>
+                <field name="location_id"/>
+                <field name="location_dest_id"/>
+                <field name="product_uom" string="Unit"/>
+                <field name="product_uom_qty" string="Quantity"/>
+                <field name="pending_qty"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="direct_transfer_action" model="ir.actions.act_window">
+        <field name="name">Direct Transfer Out Report</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="direct_transfer_tree_view"/>
+        <field name="domain">[('picking_id.direct_transfer', '=', True)]</field>
+        <field name="context">{'search_default_done': 1}</field>
+    </record>
+    <record id="direct_transfer_pending_action" model="ir.actions.act_window">
+        <field name="name">Direct Transfer Pending Report</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="direct_transfer_pending_report_view"/>
+        <field name="domain">[('picking_id.direct_transfer', '=', True),('state','=','done')]</field>
+    </record>
+
+<!--    <menuitem action="direct_transfer_action" id="menu_store_direct_transfer" name="Direct Transfer Out" parent="zcl_store.menu_report_store" sequence="47"/>-->
+</odoo>

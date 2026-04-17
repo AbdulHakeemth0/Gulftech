@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_unit_line_admin,unit_line,model_unit_line,base.group_user,1,1,1,1
+access_reorder_line_admin,reorder_line,model_reorder_line,base.group_user,1,1,1,1
+access_product_count_line_admin,product_count_line,model_product_count_line,base.group_user,1,1,1,1
+access_item_movement_admin,item_movement,model_item_movement,base.group_user,1,1,1,1

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <menuitem action="action_direct_order_sale_order" id="menu_action_do_form" parent="zcl_shop.menu_shop_sales" name="Delivery Orders"/>-->
+<!--    <menuitem action="action_internal_direct_order_sale_order" id="menu_action_internal_do_form" parent="zcl_store.menu_action_store_parent" name="Internal DO" sequence="2"/>-->
+<!--    <menuitem action="action_internal_direct_order_sale_order" id="menu_action_internal_do_form" parent="zcl_shop.menu_shop_sales" name="Internal DO"/>-->
+<!--    <menuitem action="action_project_direct_order_sale_order" id="menu_action_project_do_form" parent="zcl_shop.menu_shop_sales" name="Project DO"/>-->
+<!--    <menuitem action="action_cash_sale_sale_order" id="menu_action_cash_sale_form" parent="zcl_shop.menu_shop_sales" name="Cash Sale"/>-->
+<!--    <menuitem action="action_wh_sale_sale_order" id="menu_action_wh_sale_form" parent="zcl_shop.menu_shop_sales" name="Warehouse Sale"/>-->
+
+<!--    <menuitem id="menu_to_invoice_dos" name="Do To Invoice" action="action_direct_order_sale_order_to_invoice" parent="zcl_shop.menu_report_shop" sequence="50"/>-->
+
+
+<!--    <menuitem id="menu_to_wizards" name="Delivery Order Report" action="sale_order_pdf_report_action" parent="zcl_shop.menu_report_shop" sequence="51" groups="zcl_contacts.group_for_shop_reports"/>-->
+
+<!--    <menuitem id="menu_to_daily_wizards" name="Daily Sale Report" action="daily_sales_order_pdf_report_action" parent="zcl_shop.menu_report_shop" sequence="52" groups="zcl_contacts.group_for_shop_reports"/>-->
+
+<!--    <menuitem action="action_approval_sale_order" id="delivery_order_request" parent="zcl_purchase.menu_purchase_root" name="Discount Approval" groups="zcl_purchase.group_for_purchase"/>-->
+</odoo>

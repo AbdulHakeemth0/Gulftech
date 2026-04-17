@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="module_category_store_manager" model="ir.module.category">
+        <field name="name">Store Manager</field>
+        <field name="description">Category for shop</field>
+    </record>
+    <record id="group_for_store_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_store_manager"/>
+    </record>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+     <record id="order_form_inherit_stock_picking" model="ir.ui.view">
+         <field name="name">stock.picking.form</field>
+         <field name="model">stock.picking</field>
+         <field name="inherit_id" ref="stock.view_picking_form"/>
+         <field name="arch" type="xml">
+           <xpath expr="//sheet/group/group/field[@name='partner_id']" position="after">
+            <field name="location"/>
+<!--               <field name="is_internal"/>-->
+             </xpath>
+<!--   <xpath expr="//group[@name='partner_details']/field[@name='partner_id']" position="after">-->
+
+<!--                    <field name="warehouse_id"/>-->
+
+<!--            </xpath>-->
+
+
+         </field>
+     </record>
+
+
+    <record id="view_stock_picking_type_form" model="ir.ui.view">
+        <field name="name">stock.picking.type.form</field>
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.view_picking_type_form"/>
+        <field name="arch" type="xml">
+          <xpath expr="//sheet/group/group/field[@name='show_operations']" position="after">
+                <!-- Add your boolean field -->
+                <field name="is_internal"/>
+          </xpath>
+        </field>
+    </record>
+</odoo>

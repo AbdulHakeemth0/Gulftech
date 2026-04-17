@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    <menuitem-->
+<!--              id="damage_stock_menu_shop_id"-->
+<!--              name="Damage Stock"-->
+<!--              parent="zcl_store.menu_action_store_parent" />-->
+
+<!--    <menuitem action="damage_stock_in_action_store"-->
+<!--              id="damage_stock_in_menu_shop"-->
+<!--              name="Damage Stock In"-->
+<!--              parent="damage_stock_menu_shop_id" />-->
+
+<!--    <menuitem action="damage_stock_out_action_store"-->
+<!--              id="damage_stock_out_menu_shop"-->
+<!--              name="Damage Stock Out"-->
+<!--              parent="damage_stock_menu_shop_id" />-->
+
+<!--    <menuitem action="damage_stock_out_action_shop"-->
+<!--              id="damage_stock_menu_shop"-->
+<!--              name="Damage Stock Out"-->
+<!--              parent="zcl_shop.menu_shop_root" />-->
+
+<!--    <menuitem action="damage_stock_action_purchase"-->
+<!--              id="damage_stock_menu_purchase"-->
+<!--              name="Damage Stocks"-->
+<!--              parent="zcl_purchase.menu_purchase_root" />-->
+
+
+
+
+<!--    <menuitem action="damage_stock_in_action_store_report"-->
+<!--              id="damage_stock_menu_store_report"-->
+<!--              name="Damage Stock Report"-->
+<!--              parent="zcl_store.menu_report_store" />-->
+
+
+<!--        <menuitem  id="menu_shop_report_damage_stock_in"-->
+<!--                   name="Damage Stock"-->
+<!--                   parent="zcl_store.menu_report_store"-->
+<!--                   action="damage_stock_in_action_store_report"-->
+<!--                   sequence="3"/>-->
+
+<!--            <menuitem  id="menu_damage_stock_in"-->
+<!--                       name="Damage Stock IN Report"-->
+<!--                       parent="menu_shop_report_damage_stock_in"-->
+<!--                       action="damage_stock_in_action_store_report"-->
+<!--                       sequence="1"/>-->
+
+<!--            <menuitem  id="menu_damage_stock_out_1"-->
+<!--                       name="Damage Stock OUT Report"-->
+<!--                       parent="menu_shop_report_damage_stock_in"-->
+<!--                       action="damage_stock_out_action_store_report"-->
+<!--                       sequence="2"/>-->
+
+<!--            <menuitem  id="menu_damage_stock_in_pending"-->
+<!--                       name="Damage Stock in Pending Report"-->
+<!--                       parent="zcl_store.menu_store_pending_reports"-->
+<!--                       action="damage_stock_in_pending_report"-->
+<!--                       sequence="4"/>-->
+
+
+
+</odoo>

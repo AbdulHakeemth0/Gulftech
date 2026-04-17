@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="action_report_invoice" model="ir.actions.report">
+            <field name="name">Invoice Report</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">zcl_direct_order.report_sale_order</field>
+            <field name="report_file">zcl_direct_order.report_sale_order</field>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_daily_sale" model="ir.actions.report">
+            <field name="name">Daily Report</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">zcl_direct_order.report_sale_order_daily</field>
+            <field name="report_file">zcl_direct_order.report_sale_order_daily</field>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

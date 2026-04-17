@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--    cash payment form view-->
+    <record id="cash_payments_view_form" model="ir.ui.view">
+        <field name="name">cash.receipt.view.form</field>
+        <field name="model">cash.payments</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,approve,reject"/>
+                    <button name="cash_payments_confirm" string="Confirm" type="object" class="oe_highlight" states="draft"/>
+                    <button name="cash_payments_reject" type="object" string="Reject" class="btn-secondary" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="account_id"/>
+                            <field name="branch_id" readonly="1" force_save="1"/>
+                        </group>
+                        <group>
+                            <field name="payment_date" string="Payment Date"/>
+                            <field name="payment_amount"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--    cash receipt tree view-->
+    <record id="cash_payments_view_tree" model="ir.ui.view">
+        <field name="name">cash.receipt.view.tree</field>
+        <field name="model">cash.payments</field>
+        <field name="arch" type="xml">
+             <tree>
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="payment_date"/>
+                <field name="payment_amount"/>
+                <field name="state" widget="badge"
+                    decoration-info="state == 'draft'"
+                    decoration-success="state == 'done'"
+                    decoration-danger="state == 'reject'"/>
+
+            </tree>
+        </field>
+    </record>
+
+
+
+
+    ##################### ACTIONS ##########################
+
+    <!--    shop action    -->
+    <record id="cash_payments_shop_action" model="ir.actions.act_window">
+        <field name="name">Cash Payments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cash.payments</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('cash_payments_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('cash_payments_view_form')})]"/>
+    </record>
+    
+</odoo>

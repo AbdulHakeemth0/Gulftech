@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<!--    <record id="customer_invoice_branch_manager_rule" model="ir.rule">-->
+<!--        <field name="name">Customer Invoice Branch Manager</field>-->
+<!--        <field name="model_id" ref="model_customer_invoice"/>-->
+<!--        <field name="global" eval="True"/>-->
+<!--        <field name="domain_force">[(1,'=',1)]</field>-->
+<!--        <field name="groups" eval="[(4, ref('branch.group_branch_user_manager'))]"/>-->
+<!--    </record>-->
+
+<!--    <record id="customer_invoice_user_branch_rule" model="ir.rule">-->
+<!--        <field name="name">Customer Invoice User Branch</field>-->
+<!--        <field name="model_id" ref="model_customer_invoice"/>-->
+<!--        <field name="global" eval="True"/>-->
+<!--        <field name="domain_force">['|',('branch_id','=',False),('branch_id','=',user.branch_id.id)]</field>-->
+<!--        <field name="groups" eval="[(4, ref('branch.group_branch_user'))]"/>-->
+<!--    </record>-->
+</data>
+</odoo>

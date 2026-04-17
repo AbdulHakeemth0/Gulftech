@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <menuitem id="menu_action_store_parent" name="Stores" web_icon="zcl_store,static/description/icon.svg" groups="zcl_contacts.group_for_store,zcl_contacts.group_for_store_shop_admin"/>-->
+
+
+    <menuitem action="zcl_store.action_store_form" id="menu_action_store_form" parent="zcl_store.menu_action_store_parent" name="Stores" groups="zcl_contacts.group_for_store_shop_admin" sequence="1"/>
+    <menuitem id="menu_action_transfer_form" parent="zcl_store.menu_action_store_parent" name="Transfers" groups="zcl_contacts.group_for_store"/>
+    <menuitem action="zcl_contacts.zcl_contact_vendor_action" id="menu_contact_vendor_store" parent="zcl_store.menu_action_store_parent" name="Vendors"/>
+    <menuitem action="zcl_store.category_store_python_action" id="menu_store_contact" parent="zcl_store.menu_action_store_parent" name="Customers"/>
+    <menuitem id="menu_report_store" name="Reports" parent="zcl_store.menu_action_store_parent" sequence="45"/>
+    <menuitem id="menu_shop_report_shop_request" name="Shop Request" parent="zcl_menu.menu_report_store" sequence="1"/>
+    <menuitem id="menu_shop_report_movement" name="Movement" parent="zcl_menu.menu_report_store" sequence="0"/>
+    <menuitem id="menu_item_movement" name="Item Movement" parent="zcl_menu.menu_shop_report_movement" action="zcl_products.item_movement_action" sequence="1"/>
+    <menuitem action="zcl_stock_inherited.action_stock_ledger_reports" id="menu_action_stock_ledger" parent="zcl_menu.menu_shop_report_movement" name="Stock Ledger" sequence="2"/>
+    <menuitem action="zcl_stock_inherited.shop_request_report_action" id="menu_shop_request_report" name="Shop Request" parent="zcl_menu.menu_shop_report_shop_request" sequence="1"/>
+    <menuitem action="zcl_stock_inherited.shop_request_in_report_action" id="menu_shop_in_request_report" name="Shop Request In" parent="zcl_menu.menu_shop_report_shop_request" sequence="2"/>
+    <menuitem action="zcl_stock_inherited.shop_request_out_report_action" id="menu_shop_out_request_report" name="Shop Request Out" parent="zcl_menu.menu_shop_report_shop_request" sequence="3"/>
+    <menuitem id="menu_shop_report_direct_transfer" name="Direct Transfer" parent="zcl_menu.menu_report_store" sequence="2"/>
+    <menuitem action="zcl_stock_inherited.direct_transfer_action" id="menu_store_direct_transfer" name="Direct Transfer Out" parent="zcl_menu.menu_shop_report_direct_transfer" sequence="1"/>
+    <menuitem id="menu_store_pending_reports" name="Pending Reports" parent="zcl_menu.menu_report_store" sequence="5"/>
+    <menuitem action="zcl_stock_inherited.shop_request_out_pending_report_action" id="menu_shop_request_out_pending_report" name="Shop Request Out Pending" parent="zcl_menu.menu_store_pending_reports" sequence="1"/>
+    <menuitem action="zcl_stock_inherited.shop_request_in_pending_report_action" id="menu_shop_request_in_pending_report" name="Shop Request In Pending" parent="zcl_menu.menu_store_pending_reports" sequence="2"/>
+    <menuitem action="zcl_stock_inherited.direct_transfer_pending_action" id="menu_direct_transfer_pending_report" name="Direct Transfer Pending" parent="zcl_menu.menu_store_pending_reports" sequence="3"/>
+
+
+
+    <menuitem action="zcl_shop.action_shop_form" id="menu_shop" parent="zcl_shop.menu_shop_root" name="Shops" groups="zcl_contacts.group_for_store_shop_admin"/>
+     <menuitem action="zcl_shop.category_shop_python_action" id="menu_contact" parent="zcl_shop.menu_shop_root" name="Customers"/>
+    <menuitem id="shop_request_menu" parent="zcl_shop.menu_shop_root" name="Shop Request"/>
+    <menuitem id="shop_transfer_menu" parent="zcl_menu.shop_request_menu" name="Shop Transfer" action="zcl_shop.shop_transfer_action"/>
+    <menuitem id="shop_transfer_in_menu" parent="zcl_menu.shop_request_menu" name="Shop Transfer In" action="zcl_shop.shop_transfer_in_action"/>
+    <menuitem id="shop_transfer_out_menu" parent="zcl_store.menu_action_store_parent" name="Shop Transfer Out" action="zcl_shop.shop_transfer_out_action"/>
+    <menuitem id="menu_shop_sales" parent="zcl_shop.menu_shop_root" name="Sales"/>
+    <menuitem id="menu_shop_invoices" parent="zcl_shop.menu_shop_root" name="Invoices"/>
+    <menuitem id="menu_shop_request" parent="zcl_shop.menu_shop_root" name="Shop Request"/>
+    <menuitem action="zcl_shop.action_shop_list" id="menu_action_stock_query" parent="zcl_store.menu_action_store_parent" name="Stock Query" groups="zcl_contacts.group_for_store_shop_admin"/>
+    <menuitem action="zcl_shop.action_shop_stock_in_hand" id="menu_action_stock_in_hand_shop" parent="zcl_shop.menu_shop_root" name="Stock in hand"/>
+    <menuitem action="zcl_shop.action_shop_stock_in_hand" id="menu_action_stock_in_hand_store" parent="zcl_store.menu_action_store_parent" name="Stock in hand"/>
+    <menuitem action="zcl_shop.sales_man_action" id="menu_sales_mans" parent="zcl_shop.menu_shop_root" name="Salesman"/>
+    <menuitem id="menu_report_shop" name="Reports" parent="zcl_shop.menu_shop_root" sequence="45"/>
+    <menuitem id="menu_stock_moves" name="Stock Moves" action="stock.stock_move_action" parent="zcl_menu.menu_report_shop" sequence="45"/>
+    <menuitem id="menu_stock_query" name="Stock Query" action="zcl_shop.action_stock_moves_list" parent="zcl_menu.menu_report_shop" sequence="46"/>
+
+    <menuitem id="menu_purchase_root"
+                  name="Purchase"
+                  groups="zcl_purchase.group_for_purchase"
+                  web_icon="zcl_purchase,static/description/icon.svg"
+              />
+
+    <menuitem
+            id="submenu_cash_memo"
+            name="Cash Memo"
+            action="zcl_cash_memo.action_cash_memo"
+            parent="zcl_menu.menu_shop_sales"/>
+
+    <menuitem id="menu_finance_root"
+              name="Finance"
+              groups="zcl_finance.group_for_finance"
+              web_icon="zcl_finance,static/description/icon.svg"/>
+    <menuitem id="menu_finance_others" name="Others" groups="zcl_finance.group_for_finance" parent="menu_finance_root" sequence="2"/>
+    <menuitem id="menu_purchase_bill" name="Purchase Bill" parent="zcl_menu.menu_finance_others"/>
+    <menuitem id="menu_cash_purchase_bill" name="Cash Purchase Bill" parent="zcl_menu.menu_finance_others"/>
+    <menuitem id="menu_cash_purchase_local_bill" name="Cash Purchase Local Bill" parent="zcl_menu.menu_cash_purchase_bill" action="zcl_finance.action_move_in_invoice_type_cash_purchase_local_bill_approve"/>
+    <menuitem id="menu_purchase_local_bill_approve" name="Purchase Local Bill" parent="zcl_menu.menu_purchase_bill" action="zcl_finance.action_move_in_invoice_type_purchase_local_bill_approve"/>
+    <menuitem id="menu_purchase_import_bill_approve" name="Purchase Import Bill" parent="zcl_menu.menu_purchase_bill" action="zcl_finance.action_move_in_invoice_type_purchase_import_bill_approve"/>
+    <menuitem id="menu_customers"
+              name="Credit Customers Approval"
+              action="zcl_finance.finance_customers_action"
+              parent="zcl_menu.menu_finance_others"/>
+    <menuitem id="menu_daily_closing"
+              name="Daily Closing"
+              parent="zcl_menu.menu_finance_others"
+              groups="zcl_finance.group_for_finance"
+              action="zcl_purchase.action_daily_summary"
+    />
+    <menuitem id="menu_finance_receipt"
+              name="Receipt"
+              parent="zcl_menu.menu_finance_others"/>
+    <menuitem id="account.menu_finance_entries"
+              name="Accounting"
+              parent="zcl_menu.menu_finance_root" sequence="3"/>
+    <menuitem id="account.menu_finance_configuration"
+              name="Configuration"
+              parent="zcl_menu.menu_finance_root" sequence="10"/>
+    <menuitem id="account.menu_finance_reports"
+              name="Reporting"
+              parent="zcl_menu.menu_finance_root" sequence="4"/>
+    <menuitem id="account.menu_board_journal_1"
+              name="Dashboards"
+              parent="zcl_menu.menu_finance_root" sequence="1"/>
+    <menuitem action="zcl_finance.bank_receipt_action"
+              id="bank_receipt_menu"
+              name="Bank Receipt"
+              parent="zcl_menu.menu_finance_receipt"/>
+    <menuitem id="menu_journal_entries"
+              name="Journal Entry"
+              action="zcl_finance.finance_journal_action"
+              parent="zcl_menu.menu_finance_others"/>
+    <menuitem action="zcl_shop.shop_target_action"
+                id="shop_target_menu"
+                name="Shop Target"
+                parent="zcl_menu.menu_finance_others"
+                groups="zcl_contacts.group_for_store_shop_admin"/>
+    <menuitem action="zcl_finance.zcl_finance_products"
+              id="menu_action_finance_product"
+              parent="zcl_menu.menu_finance_others"
+              name="Products" groups="zcl_finance.group_for_finance"/>
+
+
+    <menuitem id="menu_finance_report" name="Reports" parent="zcl_menu.menu_finance_others"/>
+    <menuitem id="menu_purchase_order_root" name="Purchase" parent="zcl_menu.menu_purchase_root"/>
+    <menuitem id="menu_purchase_bill_purchases" name="Purchase Voucher" parent="zcl_menu.menu_purchase_order_root"/>
+    <menuitem id="menu_purchase_local_bill" name="Purchase Local Bill" parent="zcl_menu.menu_purchase_bill_purchases" action="zcl_purchase_bill.action_move_in_invoice_type_purchase_local_bill"/>
+    <menuitem id="menu_purchase_import_bill" name="Purchase Import Bill" parent="zcl_menu.menu_purchase_bill_purchases" action="zcl_purchase_bill.action_move_in_invoice_type_purchase_import_bill"/>
+<!--        <menuitem id="menu_project_do_invoice" name="Project DO Invoice" parent="zcl_menu.menu_purchase_root" action="zcl_purchase_bill.action_move_in_invoice_type_project_do_invoice"/>-->
+    <menuitem id="menu_project_do_invoice" name="Project DO Invoice" parent="zcl_menu.menu_purchase_root" action="zcl_invoice.action_project_do_invoice"/>
+    <menuitem id="menu_purchase_report" name="Reports" parent="zcl_menu.menu_purchase_root"/>
+    <menuitem id="menu_purchase_item_movement" name="Item Movement" parent="zcl_menu.menu_purchase_report"/>
+    <menuitem id="menu_purchase_purchases" name="Purchases" parent="zcl_menu.menu_purchase_report"/>
+    <menuitem id="menu_purchase_stockmoving" name="Stock Moving" parent="zcl_menu.menu_purchase_report"/>
+    <menuitem id="menu_stock_query_finance" name="Stock Query" action="zcl_shop.action_stock_moves_list" parent="zcl_menu.menu_finance_report" sequence="46"/>
+    <menuitem id="menu_stock_moves_finance" name="Stock Moves" action="stock.stock_move_action" parent="zcl_menu.menu_finance_report" sequence="45"/>
+    <menuitem id="menu_to_invoice_dos_finance" name="Do To Invoice" action="zcl_direct_order.action_direct_order_sale_order_to_invoice" parent="zcl_menu.menu_finance_report" sequence="50"/>
+    <menuitem id="menu_to_wizards_finance" name="Delivery Order Report" action="zcl_direct_order.sale_order_pdf_report_action" parent="zcl_menu.menu_finance_report" sequence="51" groups="zcl_contacts.group_for_shop_reports"/>
+    <menuitem id="menu_to_daily_wizards_finance" name="Daily Sale Report" action="zcl_direct_order.daily_sales_order_pdf_report_action" parent="zcl_menu.menu_finance_report" sequence="52" groups="zcl_contacts.group_for_shop_reports"/>
+    <menuitem action="zcl_damage_stock.damage_stock_in_report_shop" id="damage_stock_menu_shop_report" name="Damage Stock Out Report" parent="zcl_menu.menu_report_shop" />
+    <menuitem action="zcl_damage_stock.damage_stock_in_action_store_report" id="damage_stock_menu_purchase_report" name="Damage Stock Report" parent="zcl_menu.menu_purchase_report" />
+    <menuitem action="zcl_damage_stock.damage_stock_in_action_store_report" id="damage_stock_menu_finance_report" name="Damage Stock Report" parent="zcl_menu.menu_finance_report" />
+    <menuitem action="zcl_products.item_movement_action" id="item_movement_report_purchase" name="Item Movement Individual" parent="zcl_menu.menu_purchase_item_movement" />
+    <menuitem action="zcl_stock_inherited.action_stock_ledger_reports" id="purchase_menu_action_stock_ledger" parent="zcl_menu.menu_purchase_stockmoving" name="Stock Ledger" sequence="2"/>
+
+
+    <menuitem id="menu_cash_purchase_root" name="Cash Purchase" parent="zcl_store.menu_action_store_parent"/>
+    <menuitem id="menu_cash_purchase" name="Cash Purchase" parent="menu_cash_purchase_root" action="zcl_cash_purcahse.cash_purchase_store_action"/>
+    <menuitem id="menu_grn_local" name="GRN LOCAL AND IMPORT" parent="menu_cash_purchase_root" action="zcl_cash_purcahse.grn_local_order_action"/>
+    <menuitem id="menu_cash_payment_shop" name="Cash Payment" parent="zcl_shop.menu_shop_root" action="zcl_cash_payments.cash_payments_shop_action" sequence="25"/>
+    <menuitem id="menu_cash_purchase_shop_root" name="Cash Purchase" parent="zcl_shop.menu_shop_root"/>
+    <menuitem id="menu_purchase_confirm" name="Cash Purchase" parent="menu_purchase_order_root" action="zcl_cash_purcahse.cash_purchase_confirm_action" groups="zcl_purchase.group_for_purchase"/>
+    <menuitem id="menu_cash_purchase_shop" name="Cash Purchase" parent="menu_cash_purchase_shop_root" action="zcl_cash_purcahse.cash_purchase_shop_action"/>
+    <menuitem id="menu_purchase_local" name="Purchase Local" parent="menu_purchase_order_root" action="zcl_cash_purcahse.purchase_local_order_action"/>
+    <menuitem id="menu_purchase_import" name="Purchase Import" parent="menu_purchase_order_root" action="zcl_cash_purcahse.purchase_import_order_action"/>
+    <menuitem id="menu_purchase_local_report" name="Purchase Local" parent="zcl_menu.menu_purchase_purchases" action="zcl_cash_purcahse.purchase_local_order_action"/>
+    <menuitem id="menu_purchase_import_report" name="Purchase Import" parent="zcl_menu.menu_purchase_purchases" action="zcl_cash_purcahse.purchase_import_order_action"/>
+
+    <menuitem action="zcl_cash_receipt.cash_receipt_action"
+              id="cash_receipt_menu"
+              name="Cash Purchase Receipt"
+              parent="menu_cash_purchase_shop_root"/>
+
+    <menuitem action="zcl_cash_receipt.cash_receipt_action_finance"
+              id="cash_receipt_menu_finance"
+              name="Cash Receipt"
+              parent="zcl_menu.menu_finance_receipt"/>
+
+    <menuitem
+              id="damage_stock_menu_shop_id"
+              name="Damage Stock"
+              parent="zcl_store.menu_action_store_parent" />
+    <menuitem action="zcl_damage_stock.damage_stock_in_action_store"
+              id="damage_stock_in_menu_shop"
+              name="Damage Stock In"
+              parent="damage_stock_menu_shop_id" />
+     <menuitem action="zcl_damage_stock.damage_stock_out_action_store"
+              id="damage_stock_out_menu_shop"
+              name="Damage Stock Out"
+              parent="damage_stock_menu_shop_id" />
+    <menuitem action="zcl_damage_stock.damage_stock_out_action_shop"
+              id="damage_stock_menu_shop"
+              name="Damage Stock Out"
+              parent="zcl_shop.menu_shop_root" />
+    <menuitem action="zcl_damage_stock.damage_stock_action_purchase"
+              id="damage_stock_menu_purchase"
+              name="Damage Stocks"
+              parent="zcl_menu.menu_purchase_root" />
+     <menuitem  id="menu_shop_report_damage_stock_in"
+                   name="Damage Stock"
+                   parent="zcl_menu.menu_report_store"
+                   action="zcl_damage_stock.damage_stock_in_action_store_report"
+                   sequence="3"/>
+    <menuitem  id="menu_damage_stock_in"
+                       name="Damage Stock IN Report"
+                       parent="menu_shop_report_damage_stock_in"
+                       action="zcl_damage_stock.damage_stock_in_action_store_report"
+                       sequence="1"/>
+     <menuitem  id="menu_damage_stock_out_1"
+                       name="Damage Stock OUT Report"
+                       parent="menu_shop_report_damage_stock_in"
+                       action="zcl_damage_stock.damage_stock_out_action_store_report"
+                       sequence="2"/>
+     <menuitem  id="menu_damage_stock_in_pending"
+                       name="Damage Stock in Pending Report"
+                       parent="zcl_menu.menu_store_pending_reports"
+                       action="zcl_damage_stock.damage_stock_in_pending_report"
+                       sequence="4"/>
+
+    <menuitem action="zcl_direct_order.action_direct_order_sale_order" id="menu_action_do_form" parent="zcl_menu.menu_shop_sales" name="Delivery Orders"/>
+    <menuitem action="zcl_direct_order.action_store_internal_direct_order_sale_order" id="menu_action_internal_do_form" parent="zcl_store.menu_action_store_parent" name="Internal DO" sequence="2"/>
+    <menuitem action="zcl_direct_order.action_project_direct_order_sale_order" id="menu_action_project_do_form" parent="zcl_menu.menu_shop_sales" name="Project DO"/>
+    <menuitem action="zcl_direct_order.action_shop_internal_direct_order_sale_order" id="menu_action_shop_internal_do_form" parent="zcl_menu.menu_shop_sales" name="Internal DO"/>
+    <menuitem action="zcl_direct_order.action_cash_sale_sale_order" id="menu_action_cash_sale_form" parent="zcl_menu.menu_shop_sales" name="Cash Sale"/>
+    <menuitem action="zcl_direct_order.action_wh_sale_sale_order" id="menu_action_wh_sale_form" parent="zcl_menu.menu_shop_sales" name="Warehouse Sale"/>
+    <menuitem id="menu_to_invoice_dos" name="Do To Invoice" action="zcl_direct_order.action_direct_order_sale_order_to_invoice" parent="zcl_menu.menu_report_shop" sequence="50"/>
+    <menuitem id="menu_to_wizards" name="Delivery Order Report" action="zcl_direct_order.sale_order_pdf_report_action" parent="zcl_menu.menu_report_shop" sequence="51" groups="zcl_contacts.group_for_shop_reports"/>
+    <menuitem id="menu_to_daily_wizards" name="Daily Sale Report" action="zcl_direct_order.daily_sales_order_pdf_report_action" parent="zcl_menu.menu_report_shop" sequence="52" groups="zcl_contacts.group_for_shop_reports"/>
+
+    <menuitem id="menu_action_direct_transfer_parent" parent="zcl_menu.menu_action_transfer_form" name="Direct Transfer"/>
+    <menuitem id="menu_action_direct_transfer_in_parent" parent="zcl_shop.menu_shop_root" name="Direct Transfer"/>
+    <menuitem action="zcl_direct_transfer.direct_transfer_out_action" id="menu_action_direct_transfer_form" parent="menu_action_direct_transfer_parent" name="Transfer Out"/>
+    <menuitem action="zcl_direct_transfer.direct_transfer_in_action" id="menu_action_direct_transfer_in_form" parent="menu_action_direct_transfer_in_parent" name="Transfer In"/>
+
+<!--    <menuitem id="menu_finance_root"-->
+<!--              name="Finance"-->
+<!--              groups="zcl_finance.group_for_finance"-->
+<!--              action="zcl_finance.action_finance_form"-->
+<!--              web_icon="zcl_finance,static/description/icon.svg"/>-->
+<!--    <menuitem id="menu_purchase_bill" name="Purchase Bill" parent="zcl_finance.menu_finance_root"/>-->
+<!--    <menuitem id="menu_purchase_local_bill_approve" name="Purchase Local Bill" parent="menu_purchase_bill" action="zcl_finance.action_move_in_invoice_type_purchase_local_bill_approve"/>-->
+<!--    <menuitem id="menu_purchase_import_bill_approve" name="Purchase Import Bill" parent="menu_purchase_bill" action="zcl_finance.action_move_in_invoice_type_purchase_import_bill_approve"/>-->
+<!--    <menuitem id="menu_customers"-->
+<!--              name="Customers Approval"-->
+<!--              action="zcl_finance.finance_customers_action"-->
+<!--              parent="zcl_finance.menu_finance_root"/>-->
+<!--    <menuitem id="menu_finance_receipt"-->
+<!--              name="Receipt"-->
+<!--              parent="zcl_finance.menu_finance_root"/>-->
+<!--    <menuitem action="zcl_finance.bank_receipt_action"-->
+<!--              id="bank_receipt_menu"-->
+<!--              name="Bank Receipt"-->
+<!--              parent="zcl_finance.menu_finance_root"/>-->
+<!--    <menuitem id="menu_journal_entries"-->
+<!--              name="Journal Entry"-->
+<!--              action="zcl_finance.finance_journal_action"-->
+<!--              parent="zcl_finance.menu_finance_root"/>-->
+<!--    <menuitem action="zcl_shop.shop_target_action"-->
+<!--                id="shop_target_menu"-->
+<!--                name="Shop Target"-->
+<!--                parent="zcl_finance.menu_finance_root"-->
+<!--                groups="zcl_contacts.group_for_store_shop_admin"/>-->
+<!--    <menuitem action="zcl_finance.zcl_finance_products"-->
+<!--              id="menu_action_finance_product"-->
+<!--              parent="zcl_finance.menu_finance_root"-->
+<!--              name="Products" groups="zcl_finance.group_for_finance"/>-->
+
+    <menuitem id="menu_grn_root" name="GRN" parent="zcl_store.menu_action_store_parent"/>
+    <menuitem id="menu_store_local_grn" name="Local GRN" parent="menu_grn_root" action="zcl_grn.grn_store_local_action"/>
+    <menuitem id="menu_store_import_grn" name="Import GRN" parent="menu_grn_root" action="zcl_grn.grn_store_import_action"/>
+    <menuitem id="menu_grn_shop_root" name="GRN" parent="zcl_shop.menu_shop_root"/>
+    <menuitem id="menu_shop_local_grn" name="Local GRN" parent="menu_grn_shop_root" action="zcl_grn.grn_shop_local_action"/>
+    <menuitem id="menu_local_grn_report" name="Local GRN" parent="zcl_menu.menu_purchase_stockmoving" action="zcl_grn.grn_local_report_action"/>
+    <menuitem id="menu_import_grn_report" name="Import GRN" parent="zcl_menu.menu_purchase_report" action="zcl_grn.grn_import_report_action"/>
+
+    <menuitem id="menu_salesman_incentive" action="zcl_incentive.action_salesman_incentive" parent="zcl_menu.menu_finance_others" name="Target setting and Incentive"/>
+
+    <menuitem
+            id="menu_customer_invoice"
+            name=" DO Invoices"
+            action="zcl_invoice.action_customer_invoice"
+            parent="zcl_menu.menu_shop_invoices"/>
+    <menuitem
+            id="cash_memo_invoices"
+            name="Cash memo invoices"
+            action="zcl_invoice.action_cash_memo_invoice_view"
+            parent="zcl_menu.menu_shop_invoices"/>
+    <menuitem
+            id="cash_sale_invoices"
+            name="Cash sale invoices"
+            action="zcl_invoice.action_cash_sale_invoice_view"
+            parent="zcl_menu.menu_shop_invoices"/>
+    <menuitem
+            id="cash_sale_return_invoices"
+            name="Cash sale return invoices"
+            action="zcl_invoice.action_cash_sale_return_invoice_view"
+            parent="zcl_menu.menu_shop_invoices"/>
+    <menuitem
+            id="sale_return_invoices"
+            name="Sale return invoices"
+            action="zcl_invoice.action_sale_return_invoice_view"
+            parent="zcl_menu.menu_shop_invoices"/>
+    <menuitem
+            id="cash_memo_sale_return_invoices"
+            name="Cash memo return invoices"
+            action="zcl_invoice.action_cash_memo_sale_return_invoice_view"
+            parent="zcl_menu.menu_shop_invoices"/>
+
+    <menuitem id="menu_material_request_root" name="Material Request" parent="zcl_store.menu_action_store_parent"/>
+    <menuitem id="menu_material_request" name="Material Request" parent="menu_material_request_root" action="zcl_material_request.action_material_request_form"/>
+    <menuitem id="menu_material_request_in" name="Material Request In" parent="menu_material_request_root" action="zcl_material_request.material_request_in_action"/>
+    <menuitem id="menu_material_request_out" name="Material Request Out" parent="menu_material_request_root" action="zcl_material_request.material_request_store_out_action"/>
+    <menuitem id="menu_material_request_shop_root" name="Material Request" parent="zcl_shop.menu_shop_root"/>
+    <menuitem id="menu_material_request_shop" name="Material Request" parent="menu_material_request_shop_root" action="zcl_material_request.action_material_request_shop_form"/>
+    <menuitem id="menu_material_request_shop_out" name="Material Request Out" parent="menu_material_request_shop_root" action="zcl_material_request.material_request_out_action"/>
+    <menuitem id="menu_material_request_shop_in" name="Material Request In" parent="menu_material_request_shop_root" action="zcl_material_request.material_request_shop_in_action"/>
+    <menuitem id="menu_material_request_shop_report" name="Material Request In" parent="zcl_menu.menu_report_shop" action="zcl_material_request.new_action_mr_shop_report"/>
+    <menuitem id="menu_shop_report_material_request" name="Material Request" parent="zcl_menu.menu_report_store" action="zcl_material_request.new_action_mr_store_report" sequence="4"/>
+    <menuitem id="menu_material_request_store_report" name="Material Request Out" parent="menu_shop_report_material_request" action="zcl_material_request.new_action_mr_store_report" sequence="1"/>
+
+    <menuitem
+              action="zcl_pdc_management.pdc_management_action_store"
+              id="pdc_management_menu"
+              name="Post-Dated Receipt"
+              parent="zcl_shop.menu_shop_root"/>
+    <menuitem
+              action="zcl_pdc_management.pdc_management_action_finance"
+              id="pdc_management_menu_finance"
+              name="PDC Receipt"
+              parent="zcl_menu.menu_finance_receipt"/>
+
+    <menuitem action="zcl_products.zcl_product_normal_action_sell" id="menu_action_product_sub" parent="zcl_store.menu_action_store_parent" name="Products" groups="zcl_contacts.group_for_store"/>
+
+<!--    <menuitem id="menu_purchase_root"-->
+<!--                  name="Purchase"-->
+<!--                  groups="zcl_purchase.group_for_purchase"-->
+<!--                  action="zcl_purchase.action_purchase_form"-->
+<!--                  web_icon="zcl_purchase,static/description/icon.svg"-->
+<!--        />-->
+    <menuitem id="menu_product_purchase"
+              name="Product"
+              parent="zcl_menu.menu_purchase_root"
+              groups="zcl_purchase.group_for_purchase"/>
+    <menuitem id="menu_product_approval"
+              name="Product Approval"
+              parent="zcl_menu.menu_product_purchase"
+              groups="zcl_purchase.group_for_purchase"
+              action="zcl_purchase.action_approval_products"
+    />
+    <menuitem action="zcl_contacts.zcl_contact_vendor_action"
+              id="menu_contact_vendor_purchase"
+              parent="zcl_menu.menu_purchase_root"
+              name="Vendors"/>
+    <menuitem id="menu_daily_summary"
+              name="Daily Summary"
+              parent="zcl_menu.menu_purchase_root"
+              groups="zcl_purchase.group_for_purchase"
+              action="zcl_purchase.action_daily_summary"
+    />
+    <menuitem action="zcl_direct_order.action_approval_sale_order"
+              id="delivery_order_requests" parent="zcl_menu.menu_purchase_root"
+              name="Discount Approval" groups="zcl_purchase.group_for_purchase"/>
+    <menuitem action="zcl_purchase.zcl_purchase_products"
+              id="menu_action_purchase_product"
+              parent="zcl_menu.menu_product_purchase"
+              name="Products" groups="zcl_purchase.group_for_purchase"/>
+
+<!--    <menuitem id="menu_finance_report" name="Reports" parent="zcl_finance.menu_finance_root"/>-->
+<!--    <menuitem id="menu_purchase_bill_purchase" name="Purchase Voucher" parent="zcl_purchase.menu_purchase_root"/>-->
+<!--    <menuitem id="menu_purchase_local_bill" name="Purchase Local Bill" parent="zcl_purchase_bill.menu_purchase_bill_purchase" action="zcl_purchase_bill.action_move_in_invoice_type_purchase_local_bill"/>-->
+<!--    <menuitem id="menu_purchase_import_bill" name="Purchase Import Bill" parent="zcl_purchase_bill.menu_purchase_bill_purchase" action="zcl_purchase_bill.action_move_in_invoice_type_purchase_import_bill"/>-->
+<!--    <menuitem id="menu_project_do_invoice" name="Project DO Invoice" parent="zcl_purchase.menu_purchase_root" action="zcl_purchase_bill.action_move_in_invoice_type_project_do_invoice"/>-->
+<!--    <menuitem id="menu_purchase_report" name="Reports" parent="zcl_purchase.menu_purchase_root"/>-->
+<!--    <menuitem id="menu_purchase_item_movement" name="Item Movement" parent="zcl_purchase_bill.menu_purchase_report"/>-->
+<!--    <menuitem id="menu_purchase_purchases" name="Purchases" parent="zcl_purchase_bill.menu_purchase_report"/>-->
+<!--    <menuitem id="menu_purchase_stockmoving" name="Stock Moving" parent="zcl_purchase_bill.menu_purchase_report"/>-->
+<!--    <menuitem id="menu_stock_query_finance" name="Stock Query" action="zcl_shop.action_stock_moves_list" parent="zcl_purchase_bill.menu_finance_report" sequence="46"/>-->
+<!--    <menuitem id="menu_stock_moves_finance" name="Stock Moves" action="stock.stock_move_action" parent="zcl_purchase_bill.menu_finance_report" sequence="45"/>-->
+<!--    <menuitem id="menu_to_invoice_dos_finance" name="Do To Invoice" action="zcl_direct_order.action_direct_order_sale_order_to_invoice" parent="zcl_purchase_bill.menu_finance_report" sequence="50"/>-->
+<!--    <menuitem id="menu_to_wizards_finance" name="Delivery Order Report" action="zcl_direct_order.sale_order_pdf_report_action" parent="zcl_purchase_bill.menu_finance_report" sequence="51" groups="zcl_contacts.group_for_shop_reports"/>-->
+<!--    <menuitem id="menu_to_daily_wizards_finance" name="Daily Sale Report" action="zcl_direct_order.daily_sales_order_pdf_report_action" parent="zcl_purchase_bill.menu_finance_report" sequence="52" groups="zcl_contacts.group_for_shop_reports"/>-->
+<!--    <menuitem action="zcl_damage_stock.damage_stock_in_report_shop" id="damage_stock_menu_shop_report" name="Damage Stock Out Report" parent="zcl_shop.menu_report_shop" />-->
+<!--    <menuitem action="zcl_damage_stock.damage_stock_in_action_store_report" id="damage_stock_menu_purchase_report" name="Damage Stock Report" parent="zcl_purchase_bill.menu_purchase_report" />-->
+<!--    <menuitem action="zcl_damage_stock.damage_stock_in_action_store_report" id="damage_stock_menu_finance_report" name="Damage Stock Report" parent="zcl_purchase_bill.menu_finance_report" />-->
+<!--    <menuitem action="zcl_products.item_movement_action" id="item_movement_report_purchase" name="Item Movement Individual" parent="zcl_purchase_bill.menu_purchase_item_movement" />-->
+<!--    <menuitem action="zcl_stock_inherited.action_stock_ledger_report" id="purchase_menu_action_stock_ledger" parent="zcl_purchase_bill.menu_purchase_stockmoving" name="Stock Ledger" sequence="2"/>-->
+
+    <menuitem action="zcl_purchase_requisition.purchase_requisition_action_shop"
+              id="purchase_requisition_menu_shop"
+              name="Purchase Requisition"
+              parent="zcl_shop.menu_shop_root"/>
+    <menuitem action="zcl_purchase_requisition.purchase_requisition_action_store"
+              id="purchase_requisition_menu_store"
+              name="Purchase Requisition"
+              parent="zcl_store.menu_action_store_parent"/>
+     <menuitem action="zcl_purchase_requisition.purchase_requisition_action_purchase"
+              id="purchase_requisition_menu_purchase"
+              name="Purchase Requisition"
+              parent="zcl_menu.menu_purchase_order_root"/>
+
+    <menuitem action="zcl_quotations.sale_quotation_action" id="menu_sale_quotation_store_form" parent="zcl_menu.menu_shop_sales" name="Quotation"/>
+
+    <menuitem id="sale_return"
+              name="Sale Return"
+              parent="zcl_menu.menu_shop_sales"
+              action="zcl_sales_return.action_sale_return"
+              sequence="25"/>
+    <menuitem id="menu_cash_memo_return"
+              name="Cash Memo Return"
+              parent="zcl_menu.menu_shop_sales"
+              action="zcl_sales_return.action_cash_memo_return"
+              sequence="26"/>
+
+    <menuitem id="menu_cash_sale_return"
+              name="Cash Sale Return"
+              parent="zcl_menu.menu_shop_sales"
+              action="zcl_sales_return.action_cash_sale_return"
+              sequence="27"/>
+
+<!--    <menuitem id="menu_shop_root" name="Shops" web_icon="zcl_shop,static/description/icon.svg" groups="zcl_contacts.group_for_shop,zcl_contacts.group_for_store_shop_admin"/>-->
+<!--    <menuitem action="zcl_shop.action_shop_form" id="menu_shop" parent="zcl_shop.menu_shop_root" name="Shops" groups="zcl_contacts.group_for_store_shop_admin"/>-->
+<!--    <menuitem action="zcl_shop.category_shop_python_action" id="menu_contact" parent="zcl_shop.menu_shop_root" name="Customers"/>-->
+<!--    <menuitem id="shop_request_menu" parent="zcl_shop.menu_shop_root" name="Shop Request"/>-->
+<!--    <menuitem id="shop_transfer_menu" parent="zcl_shop.shop_request_menu" name="Shop Transfer" action="zcl_shop.shop_transfer_action"/>-->
+<!--    <menuitem id="shop_transfer_in_menu" parent="zcl_shop.shop_request_menu" name="Shop Transfer In" action="zcl_shop.shop_transfer_in_action"/>-->
+<!--    <menuitem id="shop_transfer_out_menu" parent="zcl_store.menu_action_store_parent" name="Shop Transfer Out" action="zcl_shop.shop_transfer_out_action"/>-->
+<!--    <menuitem id="menu_shop_sales" parent="zcl_shop.menu_shop_root" name="Sales"/>-->
+<!--    <menuitem id="menu_shop_invoices" parent="zcl_shop.menu_shop_root" name="Invoices"/>-->
+<!--    <menuitem id="menu_shop_request" parent="zcl_shop.menu_shop_root" name="Shop Request"/>-->
+<!--    <menuitem action="zcl_shop.action_shop_list" id="menu_action_stock_query" parent="zcl_store.menu_action_store_parent" name="Stock Query" groups="zcl_contacts.group_for_store_shop_admin"/>-->
+<!--    <menuitem action="zcl_shop.action_shop_stock_in_hand" id="menu_action_stock_in_hand_shop" parent="zcl_shop.menu_shop_root" name="Stock in hand"/>-->
+<!--    <menuitem action="zcl_shop.action_shop_stock_in_hand" id="menu_action_stock_in_hand_store" parent="zcl_store.menu_action_store_parent" name="Stock in hand"/>-->
+<!--    <menuitem action="zcl_shop.sales_man_action" id="menu_sales_mans" parent="zcl_shop.menu_shop_root" name="Salesman"/>-->
+<!--    <menuitem id="menu_report_shop" name="Reports" parent="zcl_shop.menu_shop_root" sequence="45"/>-->
+<!--    <menuitem id="menu_stock_moves" name="Stock Moves" action="stock.stock_move_action" parent="zcl_shop.menu_report_shop" sequence="45"/>-->
+<!--    <menuitem id="menu_stock_query" name="Stock Query" action="zcl_shop.action_stock_moves_list" parent="zcl_shop.menu_report_shop" sequence="46"/>-->
+
+    <menuitem action="zcl_stock_inherited.action_stock_ledger_purchase_report" id="menu_purchase_stock_ledger" parent="zcl_menu.menu_purchase_item_movement" name="Item Movement Report"/>
+    <menuitem id="menu_stock_moving" name="Stock Moving Report" action="zcl_stock_inherited.action_stock_moving_report"
+                  parent="zcl_menu.menu_purchase_stockmoving"/>
+
+<!--    <menuitem id="menu_action_store_parent" name="Stores" web_icon="zcl_store,static/description/icon.svg" groups="zcl_contacts.group_for_store,zcl_contacts.group_for_store_shop_admin"/>-->
+<!--    <menuitem action="zcl_store.action_store_form" id="menu_action_store_form" parent="zcl_store.menu_action_store_parent" name="Stores" groups="zcl_contacts.group_for_store_shop_admin" sequence="1"/>-->
+<!--    <menuitem id="menu_action_transfer_form" parent="zcl_store.menu_action_store_parent" name="Transfers" groups="zcl_contacts.group_for_store"/>-->
+<!--    <menuitem action="zcl_contacts.zcl_contact_vendor_action" id="menu_contact_vendor_store" parent="zcl_store.menu_action_store_parent" name="Vendors"/>-->
+<!--    <menuitem action="zcl_store.category_store_python_action" id="menu_store_contact" parent="zcl_store.menu_action_store_parent" name="Customers"/>-->
+<!--    <menuitem id="menu_report_store" name="Reports" parent="zcl_store.menu_action_store_parent" sequence="45"/>-->
+<!--    <menuitem id="menu_shop_report_shop_request" name="Shop Request" parent="zcl_store.menu_report_store" sequence="1"/>-->
+<!--    <menuitem id="menu_shop_report_movement" name="Movement" parent="zcl_store.menu_report_store" sequence="0"/>-->
+<!--    <menuitem id="menu_item_movement" name="Item Movement" parent="zcl_store.menu_shop_report_movement" action="zcl_products.item_movement_action" sequence="1"/>-->
+<!--    <menuitem action="zcl_stock_inherited.action_stock_ledger_report" id="menu_action_stock_ledger" parent="zcl_store.menu_shop_report_movement" name="Stock Ledger" sequence="2"/>-->
+<!--    <menuitem action="zcl_stock_inherited.shop_request_report_action" id="menu_shop_request_report" name="Shop Request" parent="zcl_store.menu_shop_report_shop_request" sequence="1"/>-->
+<!--    <menuitem action="zcl_stock_inherited.shop_request_in_report_action" id="menu_shop_in_request_report" name="Shop Request In" parent="zcl_store.menu_shop_report_shop_request" sequence="2"/>-->
+<!--    <menuitem action="zcl_stock_inherited.shop_request_out_report_action" id="menu_shop_out_request_report" name="Shop Request Out" parent="zcl_store.menu_shop_report_shop_request" sequence="3"/>-->
+<!--    <menuitem id="menu_shop_report_direct_transfer" name="Direct Transfer" parent="zcl_store.menu_report_store" sequence="2"/>-->
+<!--    <menuitem action="zcl_stock_inherited.direct_transfer_action" id="menu_store_direct_transfer" name="Direct Transfer Out" parent="zcl_store.menu_shop_report_direct_transfer" sequence="1"/>-->
+<!--    <menuitem id="menu_store_pending_reports" name="Pending Reports" parent="zcl_store.menu_report_store" sequence="5"/>-->
+<!--    <menuitem action="zcl_stock_inherited.shop_request_out_pending_report_action" id="menu_shop_request_out_pending_report" name="Shop Request Out Pending" parent="zcl_store.menu_store_pending_reports" sequence="1"/>-->
+<!--    <menuitem action="zcl_stock_inherited.shop_request_in_pending_report_action" id="menu_shop_request_in_pending_report" name="Shop Request In Pending" parent="zcl_store.menu_store_pending_reports" sequence="2"/>-->
+<!--    <menuitem action="zcl_stock_inherited.direct_transfer_pending_action" id="menu_direct_transfer_pending_report" name="Direct Transfer Pending" parent="zcl_store.menu_store_pending_reports" sequence="3"/>-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--   <menuitem action="base_account_budget.open_budget_post_form" id="menu_budget_post_form" parent="account.account_management_menu"-->
+<!--              sequence="5"/>-->
+<!--    <menuitem parent="account.menu_finance_entries_management"-->
+<!--              id="base_account_budget.menu_act_budget_view"-->
+<!--              name="Budgets"-->
+<!--              action="base_account_budget.act_budget_view" sequence="60"-->
+<!--              groups="account.group_account_user"/>-->
+<!--    <menuitem parent="account.account_reports_management_menu"-->
+<!--              id="base_account_budget.menu_act_crossovered_budget_lines_view"-->
+<!--              action="base_account_budget.act_budget_lines_view" sequence="20"/>-->
+<!--    -->
+<!--    <menuitem id="branch.branch_menu_res_branch" name="Branch" parent="base.menu_users" action="branch.branch_action_res_branch"/>-->
+<!--    -->
+<!--    <menuitem id="om_account_asset.menu_action_asset_asset_report"-->
+<!--              name="Assets"-->
+<!--              action="om_account_asset.action_asset_asset_report"-->
+<!--              parent="account.account_reports_management_menu"-->
+<!--              sequence="21"/>-->
+<!--    <menuitem id="om_account_asset.menu_asset_depreciation_confirmation_wizard"-->
+<!--              name="Generate Assets Entries"-->
+<!--              action="om_account_asset.action_asset_depreciation_confirmation_wizard"-->
+<!--              parent="account.menu_finance_entries_generate_entries"-->
+<!--              sequence="111"-->
+<!--              groups="account.group_account_manager"/>-->
+<!--    <menuitem id="om_account_asset.menu_action_account_asset_asset_form"-->
+<!--              parent="account.menu_finance_entries_management"-->
+<!--              action="om_account_asset.action_account_asset_asset_form"-->
+<!--              sequence="101"-->
+<!--              groups="account.group_account_manager"/>-->
+<!--    <menuitem id="om_account_asset.menu_action_account_asset_asset_list_normal_purchase"-->
+<!--              parent="account.account_management_menu"-->
+<!--              action="om_account_asset.action_account_asset_asset_list_normal_purchase"-->
+<!--              sequence="6"/>-->
+<!--    -->
+<!--    <menuitem id="om_hr_payroll.menu_contract_type"-->
+<!--              action="om_hr_payroll.action_hr_contract_type"-->
+<!--              parent="hr.menu_human_resources_configuration"-->
+<!--              sequence="3"-->
+<!--              groups="base.group_no_one"/>-->
+<!--     <menuitem id="om_hr_payroll.menu_hr_payroll_root"-->
+<!--              name="Payroll"-->
+<!--              sequence="186"-->
+<!--              web_icon="om_hr_payroll,static/description/icon.png"/>-->
+<!--    <menuitem id="om_hr_payroll.menu_hr_payroll_configuration"-->
+<!--              name="Configuration" parent="om_hr_payroll.menu_hr_payroll_root"-->
+<!--              sequence="100"-->
+<!--              groups="om_hr_payroll.group_hr_payroll_manager"/>-->
+<!--     <menuitem-->
+<!--        id="om_hr_payroll.hr_contract_advantage_template_menu_action"-->
+<!--        action="om_hr_payroll.hr_contract_advantage_template_action"-->
+<!--        parent="menu_hr_payroll_configuration"-->
+<!--        sequence="50"/>-->
+
+    <menuitem id="menu_shops_receipt"
+              name="Receipt"
+              parent="zcl_shop.menu_shop_root"
+                sequence="48"/>
+
+<!--    <menuitem action="zcl_finance.bank_receipt_action"-->
+<!--              id="menu_shop_action_bank_receipt"-->
+<!--              parent="zcl_menu.menu_shops_receipt"-->
+<!--              name="Bank Receipt"-->
+<!--              sequence="54"/>-->
+
+     <menuitem action="zcl_cash_receipt.cash_receipt_action_finance"
+              id="cash_receipts_menu_shop"
+              name="Cash Receipt"
+              parent="zcl_menu.menu_shops_receipt"
+               sequence="55"/>
+<!--   <menuitem-->
+<!--          action="zcl_pdc_management.pdc_management_action_finance"-->
+<!--          id="pdc_management_menu_shop"-->
+<!--          name="PDC Receipt"-->
+<!--          parent="zcl_menu.menu_shops_receipt"-->
+<!--          sequence="56"/>-->
+
+</odoo>

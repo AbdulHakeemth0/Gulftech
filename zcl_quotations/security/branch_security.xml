@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<!--     <record id="sale_quotation_branch_rule" model="ir.rule">-->
+<!--        <field name="name">Sale Quotation Branch</field>-->
+<!--        <field name="model_id" ref="model_sale_quotation"/>-->
+<!--        <field name="global" eval="True"/>-->
+<!--        <field name="domain_force">['|',('branch_id','=',False),('branch_id','=',user.branch_id.id)]</field>-->
+<!--        <field name="groups" eval="[(4, ref('branch.group_branch_user'))]"/>-->
+<!--     </record>-->
+
+    
+
+<!--    <record id="sale_quotation_branch_manager_rule" model="ir.rule">-->
+<!--        <field name="name">Quotation Branch Manager</field>-->
+<!--        <field name="model_id" ref="model_sale_quotation"/>-->
+<!--        <field name="global" eval="True"/>-->
+<!--        <field name="domain_force">[(1,'=',1)]</field>-->
+<!--        <field name="groups" eval="[(4, ref('branch.group_branch_user_manager'))]"/>-->
+<!--    </record>-->
+
+<!--    <record id="sale_quotation_user_branch_rule" model="ir.rule">-->
+<!--        <field name="name">Quotation User Branch</field>-->
+<!--        <field name="model_id" ref="model_sale_quotation"/>-->
+<!--        <field name="global" eval="True"/>-->
+<!--        <field name="domain_force">['|',('branch_id','=',False),('branch_id','=',user.branch_id.id)]</field>-->
+<!--        <field name="groups" eval="[(4, ref('branch.group_branch_user'))]"/>-->
+<!--    </record>-->
+
+</data>
+</odoo>

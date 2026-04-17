@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="action_stock_moves_list" model="ir.actions.act_window">
+        <field name="name">Store query</field>
+        <field name="res_model">stock.location</field>
+        <field name="type">ir.actions.act_window</field>
+<!--        <field name="domain">[('store_location','=',False)]</field>-->
+        <field name="search_view_id" ref="stock_shop_view_search"/>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_shop_list')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_shop_form')})]"/>
+        <field name="domain">[('usage','=','internal'),('shop_location','=',True)]</field>
+    </record>
+</odoo>

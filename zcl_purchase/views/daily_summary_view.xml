@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_shop_summary_form" model="ir.ui.view">
+        <field name="name">shop.summary.form</field>
+        <field name="model">shop.summary</field>
+        <field name="arch" type="xml">
+            <form string="Shop Summary">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="shops_name_id" force_save="1"/>
+                            <field name="company_id" force_save="1"/>
+                        </group>
+                        <group>
+                            <field name="date" invisible="1"/>
+                            <field name="create_date" string="Creation Date" widget="date" force_save="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="daily_collection" string="Daily Collection">
+                            <group>
+                                <group>
+                                    <field name="company_currency_id" invisible="1"/>
+                                    <field name="total_cash_purchase" class="oe_inline" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                                    <field name="total_cash_memo_return" class="oe_inline" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                                    <field name="total_wholesale_sale" class="oe_inline" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                                    <field name="total_cash_memo" class="oe_inline" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                                    <field name="total_purchase_voucher_local" class="oe_inline" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                                    <field name="total_purchase_voucher_import" class="oe_inline" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                                    <field name="total_receipt_voucher" class="oe_inline" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="cash_memo" string="Cash Memo">
+                            <field name="cash_memo_summary_ids" widget="many2many_tree"
+                                    force_save="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="customer"/>
+                                    <field name="total_net" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="cash_memo_return" string="Cash Memo Return">
+                            <field name="cash_memo_return_ids" widget="many2many_tree"
+                                   force_save="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="customer_reference"/>
+                                    <field name="total_net" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="wholesale_order" string="Wholesale Sale">
+                            <field name="whole_sale_summary_ids" widget="many2many_tree"
+                                    force_save="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="total_net" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="cash_purchase" string="Cash Purchase">
+                            <field name="cash_purchase_ids" widget="many2many_tree" force_save="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="amount_total" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="project_do" string="Project DO">
+                            <field name="project_do_summary_ids" widget="many2many_tree"
+                                    force_save="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="total_net" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="direct_order" string="Direct Order">
+                            <field name="direct_order_summary_ids" widget="many2many_tree"
+                                    force_save="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="total_net" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="return_order" string="Return Order">
+                            <field name="return_order_summary_ids" widget="many2many_tree"
+                                   force_save="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="total_net" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="cash_sale" string="Cash Sale">
+                            <field name="cash_sale_summary_ids" widget="many2many_tree"
+                                    force_save="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="total_net" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="pdc_receipts_ids" string="PDC Receipts">
+                            <field name="pdc_receipts_ids" widget="many2many_tree"
+                                    force_save="1">
+                                    <tree>
+                                    <field name="name"/>
+                                    <field name="cheque_no"/>
+                                    <field name="manual_no"/>
+                                    <field name="net" sum="Total"/>
+                                    </tree>
+                            </field>
+                        </page>
+                        <page name="cash_receipts_ids" string="Cash Receipts">
+                            <field name="cash_receipts_ids" widget="many2many_tree"
+                                   force_save="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="cheque_no"/>
+                                    <field name="manual_no"/>
+                                    <field name="net" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="bank_receipts_ids" string="Bank Receipts">
+                            <field name="bank_receipts_ids" widget="many2many_tree"
+                                    force_save="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="cheque_no"/>
+                                    <field name="manual_no"/>
+                                    <field name="net" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_shop_summary_list" model="ir.ui.view">
+        <field name="name">shop.summary.list</field>
+        <field name="model">shop.summary</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="shops_name_id" force_save="1"/>
+                <field name="create_date" string="Creation Date" widget="date"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_daily_summary" model="ir.actions.act_window">
+        <field name="name">Daily Summary</field>
+        <field name="res_model">shop.summary</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_shop_summary_list')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_shop_summary_form')})]"/>
+    </record>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    Template for te PDF report-->
+    <template id="report_customer_details">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="text-center">
+                        <h2>Customer Details</h2>
+                    </div>
+                    <br></br>
+                    <div>
+                        <h5>Name:
+                            <t t-if="o.name">
+                                <t t-esc="o.name">
+                                </t>
+                            </t>
+                        </h5>
+                        <h5>Phone:
+                            <t t-if="o.phone">
+                                <t t-esc="o.phone">
+                                </t>
+                            </t>
+                        </h5>
+                        <h5>E-mail:
+                            <t t-if="o.email">
+                                <t t-esc="o.email">
+                                </t>
+                            </t>
+                        </h5>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                </div>
+            </t>
+        </t>
+        </t>
+    </template>
+</odoo>

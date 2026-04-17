@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="shop_request_report_tree_view" model="ir.ui.view">
+        <field name="name">shop.request.tree</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <tree string="Shop Request Report" create="false" default_order="id desc">
+                <field name="reference"/>
+                <field name="date"/>
+                <field name="product_id"/>
+                <field name="shopreq_narration"/>
+                <field name="location_id"/>
+                <field name="location_dest_id"/>
+                <field name="remarks"/>
+                <field name="product_uom_qty" string="Quantity"/>
+                <field name="req_qty"/>
+                <field name="send_qty"/>
+                <field name="product_uom" string="Unit"/>
+                <field name="state" string="Status"/>
+            </tree>
+        </field>
+    </record>
+    <record id="shop_request_pending_report_tree_view" model="ir.ui.view">
+        <field name="name">shop.request.tree</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <tree string="Shop Request Pending Report" create="false" default_order="id desc">
+                <field name="reference"/>
+                <field name="date"/>
+                <field name="product_id"/>
+                <field name="shopreq_narration"/>
+                <field name="location_id"/>
+                <field name="location_dest_id"/>
+                <field name="remarks"/>
+                <field name="product_uom_qty" string="Quantity"/>
+                <field name="req_qty"/>
+                <field name="send_qty"/>
+                <field name="quantity_done"/>
+                <field name="pending_qty"/>
+                <field name="product_uom" string="Unit"/>
+                <field name="state" string="Status"/>
+            </tree>
+        </field>
+    </record>
+    <record id="shop_request_in_report_tree_view" model="ir.ui.view">
+        <field name="name">shop.request.in.tree</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <tree string="Shop Request In Report" create="false" default_order="id desc">
+                <field name="product_id"/>
+                <field name="shopreq_narration"/>
+                <field name="location_id"/>
+                <field name="location_dest_id"/>
+                <field name="remarks"/>
+                <field name="reserved_availability" />
+                <field name="product_uom_qty" />
+                <field name="quantity_done" />
+                <field name="product_uom" string="Unit"/>
+                <field name="state" string="Status"/>
+            </tree>
+        </field>
+    </record>
+    <record id="shop_request_out_report_tree_view" model="ir.ui.view">
+        <field name="name">shop.request.out.tree</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <tree string="Shop Request Out Report" create="false" default_order="id desc">
+                <field name="product_id"/>
+                <field name="shopreq_narration"/>
+                <field name="location_id"/>
+                <field name="location_dest_id"/>
+                <field name="remarks"/>
+                <field name="quantity_done" />
+                <field name="product_uom_qty" />
+                <field name="product_uom" string="Unit"/>
+                <field name="state" string="Status"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record id="shop_request_report_action" model="ir.actions.act_window">
+        <field name="name">Shop Request Report</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="shop_request_report_tree_view"/>
+        <field name="domain">[('picking_id.shop_transfer', '=', True)]</field>
+<!--        <field name="context">{'search_default_done': 1}</field>-->
+    </record>
+    <record id="shop_request_in_pending_report_action" model="ir.actions.act_window">
+        <field name="name">Shop Request Pending Report</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="shop_request_pending_report_tree_view"/>
+        <field name="domain">[('picking_id.shop_transfer', '=', True), ('state', '=', 'done')]</field>
+<!--        <field name="context">{'search_default_done': 1}</field>-->
+    </record>
+    <record id="shop_request_out_pending_report_action" model="ir.actions.act_window">
+        <field name="name">Shop Request Pending Report</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="shop_request_pending_report_tree_view"/>
+        <field name="domain">[('picking_id.shop_transfer', '=', True), ('state', '=', 'draft')]</field>
+<!--        <field name="context">{'search_default_done': 1}</field>-->
+    </record>
+    <record id="shop_request_in_report_action" model="ir.actions.act_window">
+        <field name="name">Shop Request In Report</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="shop_request_in_report_tree_view"/>
+        <field name="domain">[('picking_id.shop_transfer', '=', True), ('state', '!=', 'draft')]</field>
+<!--        <field name="context">{'search_default_done': 1}</field>-->
+    </record>
+    <record id="shop_request_out_report_action" model="ir.actions.act_window">
+        <field name="name">Shop Request Out Report</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="shop_request_out_report_tree_view"/>
+        <field name="domain">[('picking_id.shop_transfer', '=', True), ('picking_id.state', '=', 'draft')]</field>
+<!--        <field name="context">{'search_default_done': 1}</field>-->
+    </record>
+
+
+<!--    <menuitem action="shop_request_report_action" id="menu_shop_request_report" name="Shop Request" parent="zcl_store.menu_report_store" sequence="48"/>-->
+<!--    <menuitem action="shop_request_in_report_action" id="menu_shop_in_request_report" name="Shop Request In" parent="zcl_store.menu_report_store" sequence="49"/>-->
+<!--    <menuitem action="shop_request_out_report_action" id="menu_shop_out_request_report" name="Shop Request Out" parent="zcl_store.menu_report_store" sequence="49"/>-->
+</odoo>

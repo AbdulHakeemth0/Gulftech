@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="module_category_shop_internal_do" model="ir.module.category">
+        <field name="name">Internal DO</field>
+        <field name="description">Category for shop Internal DO</field>
+    </record>
+    <record id="group_for_shop_internal_do" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_shop_internal_do"/>
+    </record>
+</odoo>

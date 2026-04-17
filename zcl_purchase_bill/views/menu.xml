@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    <menuitem id="menu_finance_report" name="Reports" parent="zcl_finance.menu_finance_root"/>-->
+
+
+<!--    <menuitem id="menu_purchase_bill_purchase" name="Purchase Voucher" parent="zcl_purchase.menu_purchase_root"/>-->
+<!--    <menuitem id="menu_purchase_local_bill" name="Purchase Local Bill" parent="menu_purchase_bill_purchase" action="action_move_in_invoice_type_purchase_local_bill"/>-->
+<!--    <menuitem id="menu_purchase_import_bill" name="Purchase Import Bill" parent="menu_purchase_bill_purchase" action="action_move_in_invoice_type_purchase_import_bill"/>-->
+
+<!--    <menuitem id="menu_project_do_invoice" name="Project DO Invoice" parent="zcl_purchase.menu_purchase_root" action="action_move_in_invoice_type_project_do_invoice"/>-->
+
+<!--    <menuitem id="menu_purchase_report" name="Reports" parent="zcl_purchase.menu_purchase_root"/>-->
+<!--    <menuitem id="menu_purchase_item_movement" name="Item Movement" parent="zcl_purchase_bill.menu_purchase_report"/>-->
+<!--    <menuitem id="menu_purchase_purchases" name="Purchases" parent="zcl_purchase_bill.menu_purchase_report"/>-->
+<!--    <menuitem id="menu_purchase_stockmoving" name="Stock Moving" parent="zcl_purchase_bill.menu_purchase_report"/>-->
+
+
+
+<!--    <menuitem id="menu_stock_query_purchase" name="Stock Query" action="zcl_shop.action_stock_moves_list" parent="zcl_purchase_bill.menu_purchase_report" sequence="46"/>-->
+<!--    <menuitem id="menu_stock_query_finance" name="Stock Query" action="zcl_shop.action_stock_moves_list" parent="zcl_purchase_bill.menu_finance_report" sequence="46"/>-->
+<!--    <menuitem id="menu_stock_moves_purchase" name="Stock Moves" action="stock.stock_move_action" parent="zcl_purchase_bill.menu_purchase_report" sequence="45" />-->
+<!--    <menuitem id="menu_stock_moves_finance" name="Stock Moves" action="stock.stock_move_action" parent="zcl_purchase_bill.menu_finance_report" sequence="45"/>-->
+
+<!--    <menuitem id="menu_to_invoice_dos_purchase" name="Do To Invoice" action="zcl_direct_order.action_direct_order_sale_order_to_invoice" parent="zcl_purchase_bill.menu_purchase_report" sequence="50"/>-->
+<!--    <menuitem id="menu_to_invoice_dos_finance" name="Do To Invoice" action="zcl_direct_order.action_direct_order_sale_order_to_invoice" parent="zcl_purchase_bill.menu_finance_report" sequence="50"/>-->
+
+<!--    <menuitem id="menu_to_wizards_purchase" name="Delivery Order Report" action="zcl_direct_order.sale_order_pdf_report_action" parent="zcl_purchase_bill.menu_purchase_report" sequence="51" groups="zcl_contacts.group_for_shop_reports"/>-->
+<!--    <menuitem id="menu_to_wizards_finance" name="Delivery Order Report" action="zcl_direct_order.sale_order_pdf_report_action" parent="zcl_purchase_bill.menu_finance_report" sequence="51" groups="zcl_contacts.group_for_shop_reports"/>-->
+
+<!--    <menuitem id="menu_to_daily_wizards_purchase" name="Daily Sale Report" action="zcl_direct_order.daily_sales_order_pdf_report_action" parent="zcl_purchase_bill.menu_purchase_report" sequence="52" groups="zcl_contacts.group_for_shop_reports"/>-->
+<!--    <menuitem id="menu_to_daily_wizards_finance" name="Daily Sale Report" action="zcl_direct_order.daily_sales_order_pdf_report_action" parent="zcl_purchase_bill.menu_finance_report" sequence="52" groups="zcl_contacts.group_for_shop_reports"/>-->
+
+<!--    <menuitem action="zcl_damage_stock.damage_stock_in_report_shop" id="damage_stock_menu_shop_report" name="Damage Stock Out Report" parent="zcl_shop.menu_report_shop" />-->
+
+<!--    <menuitem action="zcl_damage_stock.damage_stock_in_action_store_report" id="damage_stock_menu_purchase_report" name="Damage Stock Report" parent="zcl_purchase_bill.menu_purchase_report" />-->
+<!--    <menuitem action="zcl_damage_stock.damage_stock_in_action_store_report" id="damage_stock_menu_finance_report" name="Damage Stock Report" parent="zcl_purchase_bill.menu_finance_report" />-->
+
+<!--    <menuitem action="zcl_products.item_movement_action" id="item_movement_report_purchase" name="Item Movement Individual" parent="zcl_purchase_bill.menu_purchase_item_movement" />-->
+
+<!--    <menuitem action="zcl_stock_inherited.action_stock_ledger_report" id="purchase_menu_action_stock_ledger" parent="zcl_purchase_bill.menu_purchase_stockmoving" name="Stock Ledger" sequence="2"/>-->
+
+
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <menuitem id="menu_action_store_parent" name="Stores" web_icon="zcl_store,static/description/icon.svg" groups="zcl_contacts.group_for_store,zcl_contacts.group_for_store_shop_admin"/>
+
+<!--    <menuitem id="menu_action_store_parent" name="Stores" web_icon="zcl_store,static/description/icon.svg" groups="zcl_contacts.group_for_store,zcl_contacts.group_for_store_shop_admin"/>-->
+
+<!--    <menuitem action="action_store_form" id="menu_action_store_form" parent="menu_action_store_parent" name="Stores" groups="zcl_contacts.group_for_store_shop_admin" sequence="1"/>-->
+
+<!--    <menuitem id="menu_action_transfer_form" parent="menu_action_store_parent" name="Transfers" groups="zcl_contacts.group_for_store"/>-->
+<!--    <menuitem action="zcl_contacts.zcl_contact_vendor_action" id="menu_contact_vendor_store" parent="zcl_store.menu_action_store_parent" name="Vendors"/>-->
+<!--    <menuitem action="zcl_store.category_store_python_action" id="menu_store_contact" parent="menu_action_store_parent" name="Customers"/>-->
+<!--    <menuitem id="menu_report_store" name="Reports" parent="menu_action_store_parent" sequence="45"/>-->
+<!--    <menuitem action="zcl_store.item_movement_action" id="menu_store_item_movement" name="Item Movement" parent="menu_report_store" sequence="46"/>-->
+
+
+
+<!--    <menuitem id="menu_shop_report_movement" name="Movement" parent="menu_report_store" sequence="0"/>-->
+<!--        <menuitem id="menu_item_movement" name="Item Movement" parent="zcl_store.menu_shop_report_movement" action="zcl_products.item_movement_action" sequence="1"/>-->
+<!--        <menuitem action="zcl_stock_inherited.action_stock_ledger_report" id="menu_action_stock_ledger" parent="zcl_menu.menu_shop_report_movement" name="Stock Ledger" sequence="2"/>-->
+
+
+
+<!--    <menuitem id="menu_report_store" name="Reports" parent="menu_action_store_parent" sequence="45"/>-->
+<!--    <menuitem action="stock.stock_move_action" id="menu_store_item_movement" name="Item Movement" parent="menu_report_store" sequence="46"/>-->
+
+
+<!--    <menuitem id="menu_shop_report_shop_request" name="Shop Request" parent="zcl_store.menu_report_store" sequence="1"/>-->
+<!--        <menuitem action="zcl_stock_inherited.shop_request_report_action" id="menu_shop_request_report" name="Shop Request" parent="zcl_store.menu_shop_report_shop_request" sequence="1"/>-->
+<!--        <menuitem action="zcl_stock_inherited.shop_request_in_report_action" id="menu_shop_in_request_report" name="Shop Request In" parent="zcl_store.menu_shop_report_shop_request" sequence="2"/>-->
+<!--        <menuitem action="zcl_stock_inherited.shop_request_out_report_action" id="menu_shop_out_request_report" name="Shop Request Out" parent="zcl_store.menu_shop_report_shop_request" sequence="3"/>-->
+
+
+<!--    <menuitem id="menu_shop_report_direct_transfer" name="Direct Transfer" parent="zcl_store.menu_report_store" sequence="2"/>-->
+<!--        <menuitem action="zcl_stock_inherited.direct_transfer_action" id="menu_store_direct_transfer" name="Direct Transfer Out" parent="zcl_store.menu_shop_report_direct_transfer" sequence="1"/>-->
+
+<!--    <menuitem id="menu_store_pending_reports" name="Pending Reports" parent="zcl_store.menu_report_store" sequence="5"/>-->
+<!--        <menuitem action="zcl_stock_inherited.shop_request_out_pending_report_action" id="menu_shop_request_out_pending_report" name="Shop Request Out Pending" parent="zcl_store.menu_store_pending_reports" sequence="1"/>-->
+<!--        <menuitem action="zcl_stock_inherited.shop_request_in_pending_report_action" id="menu_shop_request_in_pending_report" name="Shop Request In Pending" parent="zcl_store.menu_store_pending_reports" sequence="2"/>-->
+<!--        <menuitem action="zcl_stock_inherited.direct_transfer_pending_action" id="menu_direct_transfer_pending_report" name="Direct Transfer Pending" parent="zcl_store.menu_store_pending_reports" sequence="3"/>-->
+
+</odoo>

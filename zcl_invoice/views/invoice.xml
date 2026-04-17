@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="custom_invoice_tree" model="ir.ui.view">
+        <field name="name">customer.invoice.form</field>
+        <field name="model">customer.invoice</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence_number"/>
+                <field name="invoice_no" string="Invoice No"/>
+                <field name="date" string="Created Date"/>
+                <field name="partner_id" string="Customer" force_save="1"/>
+                <field name="salesman_id" string="Sales Man"/>
+                <field name="sub_total" string="Total"/>
+                <field name="django_id" invisible="1"/>
+                <field name="state" widget="badge" string="state" decoration-info="state == 'draft'" decoration-success="state == 'confirm'" decoration-muted="state == 'cancel'"/>
+            </tree>
+        </field>
+    </record>
+    <record id="customer_invoice_search" model="ir.ui.view">
+          <field name="name">customer.invoice.search</field>
+          <field name="model">customer.invoice</field>
+          <field name="arch" type="xml">
+                 <search string="Invoice">
+                    <field name="partner_id"/>
+                 </search>
+          </field>
+    </record>
+    <record id="action_customer_invoice_all" model="ir.actions.server">
+        <field name="name">Create Invoice</field>
+        <field name="model_id" ref="zcl_invoice.model_customer_invoice"/>
+        <field name="binding_model_id" ref="zcl_invoice.model_customer_invoice"/>
+<!--        <field name='groups_id' eval="[(4, ref('account.group_account_invoice'))]"/>-->
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.customer_selected_invoice()
+        </field>
+    </record>
+
+    <record id="custom_invoice_form" model="ir.ui.view">
+        <field name="name">customer.invoice.form</field>
+        <field name="model">customer.invoice</field>
+        <field name="arch" type="xml">
+            <form string="Payments">
+                <header>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirm"/>
+                    <button name="invoice_confirm" string="Confirm"
+                            type="object" class="oe_highlight" states="draft" invisible="1"/>
+                    <button name="customer_selected_invoice" string="Create Invoice" type="object" class="oe_highlight" states="draft"/>
+                </header>
+                <sheet>
+                    <div class="o_row">
+                        <div class="oe_title ">
+                            <h1>
+                                <field name="invoice_no" readonly="1" invisible="1"/>
+                                <field name="sequence_number" readonly="1"/>
+
+                            </h1>
+                        </div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id" attrs="{'readonly': [('state', '!=', 'draft')]}" domain="[('state', '=', 'done')]"/>
+                            <field name="account_id"/>
+                            <field name="salesman_id"/>
+                            <field name="dln_no"/>
+                        </group>
+                        <group>
+                            <field name="date" string="Creation Date" widget="date"/>
+                            <field name="branch_id" readonly="1"/>
+                            <field name="gsm_no"/>
+                            <field name="available_balance"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Order Lines" name="invoice_lines">
+                            <field name="customer_invoice_ids" widget="boolean_icon"  force_save="1" >
+                                <tree editable="1" create="0">
+                                    <field name="check_box"/>
+                                    <field name="order_id"/>
+                                    <field name="date_order"/>
+                                    <field name="partner_id"/>
+                                    <field name="sales_man_id"/>
+                                    <field name="amount_total" sum="amount_total"/>
+                                </tree>
+                            </field>
+                        <div>
+                            <group>
+                                <field name="sub_total"/>
+                            </group>
+                        </div>
+                        </page>
+                        <page string="Product Lines" name="product_lines">
+                            <field name="orders_line_ids">
+                                <tree>
+                                    <field name="product_id"/>
+                                    <field name="order_id"/>
+                                    <field name="product_uom_qty"/>
+                                    <field name="total_qty"/>
+                                    <field name="rate"/>
+                                    <field name="gross"/>
+                                    <field name="sale_type"/>
+                                    <field name="discount_on_foc"/>
+                                    <field name="bottom_price"/>
+                                    <field name="net_value"/>
+                                    <field name="stock_in_hand"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="narration" string="Narration">
+                            <field name="narration"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+<!--  Normal DO invoices  -->
+    <record id="action_customer_invoice" model="ir.actions.act_window">
+            <field name="name">Invoices</field>
+            <field name="res_model">customer.invoice</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="domain">[('project_do_invoice', '=', False)]</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('custom_invoice_tree')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('custom_invoice_form')})]"/>
+        </record>
+
+<!--  Project DO invoices  -->
+    <record id="action_project_do_invoice" model="ir.actions.act_window">
+            <field name="name">Project Do Invoice</field>
+            <field name="res_model">customer.invoice</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="domain">[('project_do_invoice', '=', True)]</field>
+            <field name="context">{'default_project_do_invoice': True} </field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('custom_invoice_tree')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('custom_invoice_form')})]"/>
+        </record>
+
+</odoo>

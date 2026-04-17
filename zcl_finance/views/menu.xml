@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    <menuitem id="menu_finance_root"-->
+<!--              name="Finance"-->
+<!--              groups="zcl_finance.group_for_finance"-->
+<!--              action="action_finance_form"-->
+<!--              web_icon="zcl_finance,static/description/icon.svg"/>-->
+
+<!--     <menuitem id="menu_purchase_bill" name="Purchase Bill" parent="zcl_finance.menu_finance_root"/>-->
+<!--    <menuitem id="menu_purchase_local_bill_approve" name="Purchase Local Bill" parent="menu_purchase_bill" action="zcl_finance.action_move_in_invoice_type_purchase_local_bill_approve"/>-->
+<!--    <menuitem id="menu_purchase_import_bill_approve" name="Purchase Import Bill" parent="menu_purchase_bill" action="zcl_finance.action_move_in_invoice_type_purchase_import_bill_approve"/>-->
+
+<!--    <menuitem id="menu_customers"-->
+<!--              name="Customers Approval"-->
+<!--              action="finance_customers_action"-->
+<!--              parent="zcl_finance.menu_finance_root"/>-->
+
+<!--    <menuitem id="menu_finance_receipt"-->
+<!--              name="Receipt"-->
+<!--              parent="zcl_finance.menu_finance_root"/>-->
+
+<!--    <menuitem action="bank_receipt_action"-->
+<!--              id="bank_receipt_menu"-->
+<!--              name="Bank Receipt"-->
+<!--              parent="zcl_finance.menu_finance_root"/>-->
+
+<!--    <menuitem id="menu_journal_entries"-->
+<!--              name="Journal Entry"-->
+<!--              action="finance_journal_action"-->
+<!--              parent="zcl_finance.menu_finance_root"/>-->
+
+
+<!--    <menuitem action="zcl_shop.shop_target_action"-->
+<!--                id="shop_target_menu"-->
+<!--                name="Shop Target"-->
+<!--                parent="menu_finance_root"-->
+<!--                groups="zcl_contacts.group_for_store_shop_admin"/>-->
+
+<!--    <menuitem action="zcl_finance_products"-->
+<!--              id="menu_action_finance_product"-->
+<!--              parent="menu_finance_root"-->
+<!--              name="Products" groups="zcl_finance.group_for_finance"/>-->
+
+
+
+</odoo>

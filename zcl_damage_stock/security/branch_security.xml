@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<!--    <record id="damage_stock_branch_manager_rule" model="ir.rule">-->
+<!--        <field name="name">Damage Stock Branch Manager</field>-->
+<!--        <field name="model_id" ref="model_damage_stock"/>-->
+<!--        <field name="global" eval="True"/>-->
+<!--        <field name="domain_force">[(1,'=',1)]</field>-->
+<!--        <field name="groups" eval="[(4, ref('branch.group_branch_user_manager'))]"/>-->
+<!--    </record>-->
+
+<!--    <record id="damage_stock_user_branch_rule" model="ir.rule">-->
+<!--        <field name="name">Damage Stock User Branch</field>-->
+<!--        <field name="model_id" ref="model_damage_stock"/>-->
+<!--        <field name="global" eval="True"/>-->
+<!--        <field name="domain_force">['|',('branch','=',False),('branch','=',user.branch_id.id)]</field>-->
+<!--        <field name="groups" eval="[(4, ref('branch.group_branch_user'))]"/>-->
+<!--    </record>-->
+</data>
+</odoo>

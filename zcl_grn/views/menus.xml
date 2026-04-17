@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <menuitem id="menu_grn_root" name="GRN" parent="zcl_store.menu_action_store_parent"/>-->
+<!--    <menuitem id="menu_store_local_grn" name="Local GRN" parent="menu_grn_root" action="grn_store_local_action"/>-->
+<!--    <menuitem id="menu_store_import_grn" name="Import GRN" parent="menu_grn_root" action="grn_store_import_action"/>-->
+
+<!--    <menuitem id="menu_grn_shop_root" name="GRN" parent="zcl_shop.menu_shop_root"/>-->
+<!--    <menuitem id="menu_shop_local_grn" name="Local GRN" parent="menu_grn_shop_root" action="grn_shop_local_action"/>-->
+<!--    <menuitem id="menu_shop_import_grn" name="Import GRN" parent="menu_grn_shop_root" action="grn_shop_import_action"/>-->
+
+<!--    <menuitem id="menu_local_grn_report" name="Local GRN" parent="zcl_purchase_bill.menu_purchase_stockmoving" action="grn_local_report_action"/>-->
+<!--    <menuitem id="menu_import_grn_report" name="Import GRN" parent="zcl_purchase_bill.menu_purchase_report" action="grn_import_report_action"/>-->
+</odoo>

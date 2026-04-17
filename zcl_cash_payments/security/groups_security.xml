@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="cash_payment_branch_manager_rule" model="ir.rule">
+            <field name="name">Cash Payment Manager</field>
+            <field name="model_id" ref="model_cash_payments"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('branch.group_branch_user_manager'))]"/>
+        </record>
+
+        <record id="cash_payment_user_branch_rule" model="ir.rule">
+            <field name="name">Cash Payment User Branch</field>
+            <field name="model_id" ref="model_cash_payments"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('branch_id','=',user.branch_id.id)]</field>
+            <field name="groups" eval="[(4, ref('branch.group_branch_user'))]"/>
+        </record>
+
+<!--        <record id="cash_payment_user_rule" model="ir.rule">-->
+<!--            <field name="name">Cash Payments: Own Payments Only</field>-->
+<!--            <field name="model_id" ref="model_cash_payment"/>-->
+<!--            <field name="domain_force">[('create_uid', '=', user.id)]</field>  &lt;!&ndash; or use user_id if added &ndash;&gt;-->
+<!--            <field name="groups" eval="[(4, ref('base.group_user'))]"/> &lt;!&ndash; This rule applies to normal users &ndash;&gt;-->
+<!--        </record>-->
+    </data>
+</odoo>
